@@ -285,7 +285,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
     <button data-view="params">5 · Configurations › Parameters</button>
   </div>
   <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Logged in as <select id="whoami" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="Cinda Sekareah">Cinda Sekareah</option><option value="Mohammad Khalil">Mohammad Khalil</option></select></span>
-  <span class="hint">Add a note (1 → 1b) → to-do Done (2) → Mario (3 &amp; 4). Limits per currency in 5.</span>
+  <span class="hint">Add a note (1 → 1b): Malaz emailed + Mario (3 &amp; 4) at once; accountant pays in 2. Limits in 5.</span>
 </div>
 
 <!-- ============================================================ 1 · OSP PROFILE › MANAGER NOTES -->
@@ -395,7 +395,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
       <nav class="pm-tabs" style="margin-top:-14px"><a href="#">Payroll Date Setup</a><a href="#" class="on">Parameters</a><a href="#">Archived Payroll Files</a><a href="#">Public Holidays</a><a href="#">Upload MOHRE Files</a></nav>
       <div class="pcard">
         <div class="pcard-h"><h2 style="font-size:18px">Immediate Bonus Limits</h2><button class="btn-osp" id="saveLimits" style="min-width:80px">Save</button></div>
-        <p style="margin:0 0 14px;color:#565D6D">Minimum and maximum amount allowed per Immediate Bonus, in the employee's salary currency. One row per currency.</p>
+        <p style="margin:0 0 14px;color:#565D6D">Minimum and maximum amount allowed per Immediate Bonus, in the employee's salary currency. Office staff are paid in AED or USD only.</p>
         <table class="ptable" style="max-width:620px"><thead><tr><th>Currency</th><th class="b">Minimum</th><th class="b">Maximum</th></tr></thead><tbody id="limitsBody"></tbody></table>
       </div>
     </main>
@@ -403,7 +403,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
   <div class="osp-foot">© 2026 Maids.cc Office Staff Payroll System. All rights reserved.</div>
 </section>
 
-<div class="scrim" id="delScrim"><div class="modal" style="max-width:460px"><div class="modal-h"><div><h2>Delete Immediate Bonus?</h2><p id="delText"></p></div></div><div class="modal-b" style="padding-top:6px;color:#565D6D;font-size:13px">The bank transfer to-do will be closed. Nothing is sent to Malaz or Mario.</div><div class="modal-f"><button class="btn-cancel" id="delNo">Cancel</button><button class="btn-osp red" id="delYes" style="min-width:90px">Delete</button></div></div></div>
+<div class="modal-b" style="padding-top:6px;color:#565D6D;font-size:13px">The bank transfer to-do will be closed. Nothing is sent to Malaz or Mario.</div><div class="modal-f"><button class="btn-cancel" id="delNo">Cancel</button><button class="btn-osp red" id="delYes" style="min-width:90px">Delete</button></div></div></div>
 
 <!-- ============================================================ 2 · OSP PAYROLL MANAGER › BANK TRANSFERS -->
 <section class="view" id="v-todo">
@@ -433,11 +433,11 @@ td.nw,.who .n,.who .t{white-space:nowrap}
         </table>
       </div>
       <div id="todoSingle" style="display:none">
-        <div class="crumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgIHZpZXdCb3g9IjAgMCAxNiAxNiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIDApIiAgPjxnIHN0eWxlPSIiICAgPjxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNjcgMCAwIDAuNjcgOCAxMSkiICA+PHBhdGggc3R5bGU9InN0cm9rZTogbm9uZTsgc3Ryb2tlLXdpZHRoOiAxOyBzdHJva2UtZGFzaGFycmF5OiBub25lOyBzdHJva2UtbGluZWNhcDogYnV0dDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7IHN0cm9rZS1saW5lam9pbjogbWl0ZXI7IHN0cm9rZS1taXRlcmxpbWl0OiA0OyBmaWxsOiByZ2IoOTksMTA2LDIzMik7IGZpbGwtcnVsZTogbm9uemVybzsgb3BhY2l0eTogMTsiICB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoLTEyLCAtMTYuNSkiIGQ9Ik0gMTQgMjEgTCAxNCAxMyBMIDEwIDEzIEwgMTAgMjEgQyAxMCAyMS41NTIzIDkuNTUyMjggMjIgOSAyMiBDIDguNDQ3NzIgMjIgOCAyMS41NTIzIDggMjEgTCA4IDEzIEMgOCAxMi40Njk2IDguMjEwODcgMTEuOTYxIDguNTg1OTQgMTEuNTg1OSBDIDguOTYxMDEgMTEuMjEwOSA5LjQ2OTU3IDExIDEwIDExIEwgMTQgMTEgQyAxNC41MzA0IDExIDE1LjAzOSAxMS4yMTA5IDE1LjQxNDEgMTEuNTg1OSBDIDE1Ljc4OTEgMTEuOTYxIDE2IDEyLjQ2OTYgMTYgMTMgTCAxNiAyMSBDIDE2IDIxLjU1MjMgMTUuNTUyMyAyMiAxNSAyMiBDIDE0LjQ0NzcgMjIgMTQgMjEuNTUyMyAxNCAyMSBaIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNjcgMCAwIDAuNjcgOCA3LjY3KSIgID48cGF0aCBzdHlsZT0ic3Ryb2tlOiBub25lOyBzdHJva2Utd2lkdGg6IDE7IHN0cm9rZS1kYXNoYXJyYXk6IG5vbmU7IHN0cm9rZS1saW5lY2FwOiBidXR0OyBzdHJva2UtZGFzaG9mZnNldDogMDsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlcjsgc3Ryb2tlLW1pdGVybGltaXQ6IDQ7IGZpbGw6IHJnYig5OSwxMDYsMjMyKTsgZmlsbC1ydWxlOiBub256ZXJvOyBvcGFjaXR5OiAxOyIgIHRyYW5zZm9ybT0iIHRyYW5zbGF0ZSgtMTIsIC0xMS41KSIgZD0iTSAyMCA5Ljk5OTU3IEwgMTkuOTk0MSA5Ljg5MTE3IEMgMTkuOTgyNCA5Ljc4MzIyIDE5Ljk1MzEgOS42Nzc2MiAxOS45MDcyIDkuNTc4NjcgQyAxOS44NDYgOS40NDY3NCAxOS43NTY2IDkuMzI5NzkgMTkuNjQ1NSA5LjIzNTkgTCAxOS42NDA2IDkuMjMxMDIgTCAxMi42NDU1IDMuMjM1OSBMIDEyLjY0NTUgMy4yMzY4OCBDIDEyLjQ4NzUgMy4xMDMzNCAxMi4yOTI2IDMuMDIyNTEgMTIuMDg3OSAzLjAwNDQ2IEwgMTIgMy4wMDA1NSBDIDExLjc2MzcgMy4wMDA1NSAxMS41MzUgMy4wODQzMyAxMS4zNTQ1IDMuMjM2ODggTCAxMS4zNTM1IDMuMjM1OSBMIDQuMzU5MzggOS4yMzEwMiBMIDQuMzU0NDkgOS4yMzU5IEMgNC4yNDM0MiA5LjMyOTc5IDQuMTUzOTkgOS40NDY3NCA0LjA5Mjc3IDkuNTc4NjcgQyA0LjAzMTYgOS43MTA1NCA0IDkuODU0MjEgNCA5Ljk5OTU3IEwgNCAxOC45OTk2IEMgNCAxOS4yNjQ4IDQuMTA1NDMgMTkuNTIgNC4yOTI5NyAxOS43MDc2IEMgNC40ODA0OCAxOS44OTUgNC43MzQ5MSAxOS45OTk2IDUgMTkuOTk5NiBMIDE5IDE5Ljk5OTYgQyAxOS4yNjUxIDE5Ljk5OTYgMTkuNTE5NSAxOS44OTUgMTkuNzA3IDE5LjcwNzYgQyAxOS44OTQ2IDE5LjUyIDIwIDE5LjI2NDggMjAgMTguOTk5NiBMIDIwIDkuOTk5NTcgWiBNIDIyIDE4Ljk5OTYgQyAyMiAxOS43OTUyIDIxLjY4MzcgMjAuNTU5IDIxLjEyMTEgMjEuMTIxNiBDIDIwLjU1ODUgMjEuNjg0MSAxOS43OTU1IDIxLjk5OTYgMTkgMjEuOTk5NiBMIDUgMjEuOTk5NiBDIDQuMjA0NDcgMjEuOTk5NiAzLjQ0MTQ5IDIxLjY4NDEgMi44Nzg5MSAyMS4xMjE2IEMgMi4zMTYzIDIwLjU1OSAyIDE5Ljc5NTIgMiAxOC45OTk2IEwgMiA5Ljk5OTU3IEMgMiA5LjU2MzQ3IDIuMDk0NzkgOS4xMzI0OCAyLjI3ODMyIDguNzM2ODggQyAyLjQ2MTk3IDguMzQxMDggMi43MzAyNSA3Ljk5MDIzIDMuMDYzNDggNy43MDg1NiBMIDEwLjA1ODYgMS43MTM0NCBMIDEwLjA2MzUgMS43MDk1MyBMIDEwLjI3MzQgMS41NDc0MiBDIDEwLjc3NzEgMS4xOTI4OSAxMS4zNzk4IDEuMDAwNTUgMTIgMS4wMDA1NSBMIDEyLjI2NDYgMS4wMTIyNyBDIDEyLjc5MDUgMS4wNTg4MyAxMy4yOTQ4IDEuMjQzNTYgMTMuNzI2NiAxLjU0NzQyIEwgMTMuOTM2NSAxLjcwOTUzIEwgMTMuOTQxNCAxLjcxMzQ0IEwgMjAuOTM2NSA3LjcwODU2IEwgMjEuMDU4NiA3LjgxNjk2IEMgMjEuMzM1NiA4LjA3ODI2IDIxLjU2MSA4LjM5MDUyIDIxLjcyMTcgOC43MzY4OCBDIDIxLjkwNTIgOS4xMzI0OCAyMiA5LjU2MzQ3IDIyIDkuOTk5NTcgTCAyMiAxOC45OTk2IFoiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz48L2c+PC9nPjwvZz48L3N2Zz4=" alt="">/<a href="#" id="backToList">Payroll Manager - Bank Transfers</a>/<b>Single Transfer — Immediate Bonus</b></div>
+        <div class="crumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgIHZpZXdCb3g9IjAgMCAxNiAxNiI+PGcgdHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIDApIiAgPjxnIHN0eWxlPSIiICAgPjxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNjcgMCAwIDAuNjcgOCAxMSkiICA+PHBhdGggc3R5bGU9InN0cm9rZTogbm9uZTsgc3Ryb2tlLXdpZHRoOiAxOyBzdHJva2UtZGFzaGFycmF5OiBub25lOyBzdHJva2UtbGluZWNhcDogYnV0dDsgc3Ryb2tlLWRhc2hvZmZzZXQ6IDA7IHN0cm9rZS1saW5lam9pbjogbWl0ZXI7IHN0cm9rZS1taXRlcmxpbWl0OiA0OyBmaWxsOiByZ2IoOTksMTA2LDIzMik7IGZpbGwtcnVsZTogbm9uemVybzsgb3BhY2l0eTogMTsiICB0cmFuc2Zvcm09IiB0cmFuc2xhdGUoLTEyLCAtMTYuNSkiIGQ9Ik0gMTQgMjEgTCAxNCAxMyBMIDEwIDEzIEwgMTAgMjEgQyAxMCAyMS41NTIzIDkuNTUyMjggMjIgOSAyMiBDIDguNDQ3NzIgMjIgOCAyMS41NTIzIDggMjEgTCA4IDEzIEMgOCAxMi40Njk2IDguMjEwODcgMTEuOTYxIDguNTg1OTQgMTEuNTg1OSBDIDguOTYxMDEgMTEuMjEwOSA5LjQ2OTU3IDExIDEwIDExIEwgMTQgMTEgQyAxNC41MzA0IDExIDE1LjAzOSAxMS4yMTA5IDE1LjQxNDEgMTEuNTg1OSBDIDE1Ljc4OTEgMTEuOTYxIDE2IDEyLjQ2OTYgMTYgMTMgTCAxNiAyMSBDIDE2IDIxLjU1MjMgMTUuNTUyMyAyMiAxNSAyMiBDIDE0LjQ0NzcgMjIgMTQgMjEuNTUyMyAxNCAyMSBaIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNjcgMCAwIDAuNjcgOCA3LjY3KSIgID48cGF0aCBzdHlsZT0ic3Ryb2tlOiBub25lOyBzdHJva2Utd2lkdGg6IDE7IHN0cm9rZS1kYXNoYXJyYXk6IG5vbmU7IHN0cm9rZS1saW5lY2FwOiBidXR0OyBzdHJva2UtZGFzaG9mZnNldDogMDsgc3Ryb2tlLWxpbmVqb2luOiBtaXRlcjsgc3Ryb2tlLW1pdGVybGltaXQ6IDQ7IGZpbGw6IHJnYig5OSwxMDYsMjMyKTsgZmlsbC1ydWxlOiBub256ZXJvOyBvcGFjaXR5OiAxOyIgIHRyYW5zZm9ybT0iIHRyYW5zbGF0ZSgtMTIsIC0xMS41KSIgZD0iTSAyMCA5Ljk5OTU3IEwgMTkuOTk0MSA5Ljg5MTE3IEMgMTkuOTgyNCA5Ljc4MzIyIDE5Ljk1MzEgOS42Nzc2MiAxOS45MDcyIDkuNTc4NjcgQyAxOS44NDYgOS40NDY3NCAxOS43NTY2IDkuMzI5NzkgMTkuNjQ1NSA5LjIzNTkgTCAxOS42NDA2IDkuMjMxMDIgTCAxMi42NDU1IDMuMjM1OSBMIDEyLjY0NTUgMy4yMzY4OCBDIDEyLjQ4NzUgMy4xMDMzNCAxMi4yOTI2IDMuMDIyNTEgMTIuMDg3OSAzLjAwNDQ2IEwgMTIgMy4wMDA1NSBDIDExLjc2MzcgMy4wMDA1NSAxMS41MzUgMy4wODQzMyAxMS4zNTQ1IDMuMjM2ODggTCAxMS4zNTM1IDMuMjM1OSBMIDQuMzU5MzggOS4yMzEwMiBMIDQuMzU0NDkgOS4yMzU5IEMgNC4yNDM0MiA5LjMyOTc5IDQuMTUzOTkgOS40NDY3NCA0LjA5Mjc3IDkuNTc4NjcgQyA0LjAzMTYgOS43MTA1NCA0IDkuODU0MjEgNCA5Ljk5OTU3IEwgNCAxOC45OTk2IEMgNCAxOS4yNjQ4IDQuMTA1NDMgMTkuNTIgNC4yOTI5NyAxOS43MDc2IEMgNC40ODA0OCAxOS44OTUgNC43MzQ5MSAxOS45OTk2IDUgMTkuOTk5NiBMIDE5IDE5Ljk5OTYgQyAxOS4yNjUxIDE5Ljk5OTYgMTkuNTE5NSAxOS44OTUgMTkuNzA3IDE5LjcwNzYgQyAxOS44OTQ2IDE5LjUyIDIwIDE5LjI2NDggMjAgMTguOTk5NiBMIDIwIDkuOTk5NTcgWiBNIDIyIDE4Ljk5OTYgQyAyMiAxOS43OTUyIDIxLjY4MzcgMjAuNTU5IDIxLjEyMTEgMjEuMTIxNiBDIDIwLjU1ODUgMjEuNjg0MSAxOS43OTU1IDIxLjk5OTYgMTkgMjEuOTk5NiBMIDUgMjEuOTk5NiBDIDQuMjA0NDcgMjEuOTk5NiAzLjQ0MTQ5IDIxLjY4NDEgMi44Nzg5MSAyMS4xMjE2IEMgMi4zMTYzIDIwLjU1OSAyIDE5Ljc5NTIgMiAxOC45OTk2IEwgMiA5Ljk5OTU3IEMgMiA5LjU2MzQ3IDIuMDk0NzkgOS4xMzI0OCAyLjI3ODMyIDguNzM2ODggQyAyLjQ2MTk3IDguMzQxMDggMi43MzAyNSA3Ljk5MDIzIDMuMDYzNDggNy43MDg1NiBMIDEwLjA1ODYgMS43MTM0NCBMIDEwLjA2MzUgMS43MDk1MyBMIDEwLjI3MzQgMS41NDc0MiBDIDEwLjc3NzEgMS4xOTI4OSAxMS4zNzk4IDEuMDAwNTUgMTIgMS4wMDA1NSBMIDEyLjI2NDYgMS4wMTIyNyBDIDEyLjc5MDUgMS4wNTg4MyAxMy4yOTQ4IDEuMjQzNTYgMTMuNzI2NiAxLjU0NzQyIEwgMTMuOTM2NSAxLjcwOTUzIEwgMTMuOTQxNCAxLjcxMzQ0IEwgMjAuOTM2NSA3LjcwODU2IEwgMjEuMDU4NiA3LjgxNjk2IEMgMjEuMzM1NiA4LjA3ODI2IDIxLjU2MSA4LjM5MDUyIDIxLjcyMTcgOC43MzY4OCBDIDIxLjkwNTIgOS4xMzI0OCAyMiA5LjU2MzQ3IDIyIDkuOTk5NTcgTCAyMiAxOC45OTk2IFoiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz48L2c+PC9nPjwvZz48L3N2Zz4=" alt="">/<a href="#" id="backToList">Payroll Manager - Bank Transfers</a>/<b>Single Transfer</b></div>
         <div class="sum-card">
           <h3>Transfer Summary</h3>
           <div class="row"><span>Employee:</span><b id="sEmp"></b></div>
-          <div class="row"><span>Type:</span><b>Immediate Bonus (Manager Note)</b></div>
+          <div class="row"><span>Type:</span><b>Manager Note — Immediate Bonus</b></div>
           <div class="row"><span>Destination:</span><b id="sDest"></b></div>
           <div class="row"><span>Reason:</span><b id="sRsn" style="font-weight:500;max-width:60%;text-align:right"></b></div>
           <div class="row"><span>Amount of Transfer:</span><b id="sAmt"></b></div>
@@ -482,7 +482,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
       <div class="group-wrap">
         <div class="table-wrap">
           <table>
-            <thead><tr><th></th><th>Office staff</th><th>Category</th><th>Paid on</th><th>Amount</th><th>Requesting manager</th><th>Added by</th><th>Job title</th><th>Department</th><th>Reason</th><th>Actions</th></tr></thead>
+            <thead><tr><th></th><th>Office staff</th><th>Category</th><th>Note date</th><th>Amount</th><th>Requesting manager</th><th>Added by</th><th>Job title</th><th>Department</th><th>Reason</th><th>Actions</th></tr></thead>
             <tbody id="deskImmBody"></tbody>
           </table>
         </div>
@@ -544,7 +544,7 @@ const EMPLOYEES = [
   {id:'e7', name:'Wei Zhang', title:'Visa Agent', dept:'Housemaids Visa', cat:'Overseas', ini:'WZ', cur:'USD', dest:'International Transfer · Bank of China'},
   {id:'e2', name:'Maryam Al-Suwaidi', title:'Team Lead', dept:'Delighters', cat:'Emirati', ini:'MA', cur:'AED', dest:'Bank Transfer · FAB, UAE'},
 ];
-let LIMITS = {USD:[100,2000], AED:[400,8000], EUR:[100,2000]};
+let LIMITS = {AED:[400,8000], USD:[100,2000]};
 let currentUser = 'Cinda Sekareah';
 const CINDA = 'Cinda Sekareah';
 function userIni(n){ return n.split(' ').map(x=>x[0]).join('.'); }
@@ -569,7 +569,7 @@ function statusTagS(s){ return s==='Paid'?'<span class="ptag ptag-green sub">Pai
 const EMPTY='<tr class="empty-row"><td colspan="8">No Result</td></tr>';
 function renderOSP(){
   const mine = bonuses.filter(b=>b.empId==='e0' && b.status!=='Cancelled').slice().reverse().map(b=>
-    '<tr><td>'+(b.status==='Pending Transfer'?'<span class="acts"><button class="btn-osp sm" data-edit="'+b.id+'">Edit</button><button class="btn-osp sm red" data-del="'+b.id+'">Delete</button></span>':'<span style="color:#8a8f9c">—</span>')+'</td>'+
+    '<tr><td><span style="color:#8a8f9c">—</span></td>'+
     '<td>Immediate Bonus'+statusTagS(b.status)+'</td><td><b>'+b.cur+' '+fmt(b.amt)+'</b></td><td>—</td><td class="l">'+b.reason+'</td><td>'+b.addedOn+'</td><td>'+(b.mgr||'—')+'</td><td>'+b.by+'</td></tr>');
   const approved = ['<tr><td><span style="color:#8a8f9c">—</span></td><td>Salary Raise</td><td><b>AED 800</b></td><td>Performance</td><td class="l">Annual raise</td><td>01/09/2026</td><td>Karim Anas</td><td>Cinda Sekareah</td></tr>'];
   document.getElementById('mnBody').innerHTML = mine.concat(approved).join('') || EMPTY;
@@ -586,9 +586,9 @@ function renderTodo(){
   const rows = bonuses.filter(b=>b.status!=='Cancelled').slice().reverse().map(b=>{
     const e = emp(b.empId);
     const act = b.status==='Pending Transfer' ? '<button class="btn-osp sm" data-open="'+b.id+'">Done</button>' : '';
-    return '<tr><td><a href="#" data-open="'+b.id+'">Single Transfer — Immediate Bonus</a><div class="sub">'+b.todo+'</div></td><td>'+e.name+'</td><td><b>'+b.cur+' '+fmt(b.amt)+'</b></td><td>'+b.by+'</td><td>'+b.addedOn+'</td><td>'+ptag(b.status)+'</td><td style="text-align:right">'+act+'</td></tr>';
+    return '<tr><td><a href="#" data-open="'+b.id+'">Single Transfer</a><div class="sub">'+b.todo+' · Manager Note — Immediate Bonus</div></td><td>'+e.name+'</td><td><b>'+b.cur+' '+fmt(b.amt)+'</b></td><td>'+b.by+'</td><td>'+b.addedOn+'</td><td>'+ptag(b.status)+'</td><td style="text-align:right">'+act+'</td></tr>';
   });
-  rows.push('<tr><td><a href="#">Single Transfer — Loan Payment</a><div class="sub">BT-10419</div></td><td>Omar Sherif</td><td><b>AED 5,000</b></td><td>Cinda Sekareah</td><td>02/10/2026</td><td>'+ptag('Paid')+'</td><td></td></tr>');
+  rows.push('<tr><td><a href="#">Single Transfer</a><div class="sub">BT-10419 · Loan</div></td><td>Omar Sherif</td><td><b>AED 5,000</b></td><td>Cinda Sekareah</td><td>02/10/2026</td><td>'+ptag('Paid')+'</td><td></td></tr>');
   rows.push('<tr><td><a href="#">Overseas Bank Transfers — Oct 2026</a><div class="sub">Bulk · 7 employees</div></td><td>—</td><td><b>USD 21,210</b></td><td>System</td><td>01/10/2026</td><td>'+ptag('Pending Transfer')+'</td><td style="text-align:right"><button class="btn-osp sm">Open</button></td></tr>');
   document.getElementById('todoBody').innerHTML = rows.join('');
   document.getElementById('btCnt').textContent = 34 + bonuses.filter(b=>b.status==='Pending Transfer').length;
@@ -620,14 +620,14 @@ let newHires = [
 ].map(h=>({...h,seen:false}));
 const sel = {desk:new Set(), mob:new Set()};
 const OTHER_PENDING = 23; // items in the approval sections above, unchanged
-function awarenessItems(){ return bonuses.filter(b=>b.status==='Paid' && !b.seen); }
+function awarenessItems(){ return bonuses.filter(b=>b.status!=='Cancelled' && !b.seen); }
 function nhItems(){ return newHires.filter(h=>!h.seen); }
 function catCls(c){ return c==='Overseas' ? 'tag-neutral' : 'tag-blue'; }
 function chk(scope,id){ const on=sel[scope].has(id); return '<span class="chk'+(on?' on':'')+'" data-chk="'+id+'" data-scope="'+scope+'" role="checkbox" aria-checked="'+on+'">'+(on?chkSvg:'')+'</span>'; }
 function renderDesk(){
   const items = awarenessItems(), hires = nhItems();
   document.getElementById('deskImmBody').innerHTML = items.map(b=>{ const e=emp(b.empId);
-    return '<tr>'+'<td>'+chk('desk',b.id)+'</td><td><div class="who"><span class="avatar">'+e.ini+'</span><span class="n">'+e.name+'</span></div></td><td><span class="tag '+catCls(e.cat)+'">'+e.cat+'</span></td><td class="nw">'+b.paidOn+'</td><td class="nw"><span class="cur cur-'+b.cur.toLowerCase()+'">'+b.cur+'</span><span class="amt">'+fmt(b.amt)+'</span></td><td class="nw">'+(b.mgr||'—')+'</td><td class="nw">'+b.by+'</td><td>'+e.title+'</td><td>'+e.dept+'</td><td class="reason">'+b.reason+'</td><td><button class="btn-link" data-seen="'+b.id+'">'+eye+'Seen</button></td></tr>'; }).join('');
+    return '<tr>'+'<td>'+chk('desk',b.id)+'</td><td><div class="who"><span class="avatar">'+e.ini+'</span><span class="n">'+e.name+'</span></div></td><td><span class="tag '+catCls(e.cat)+'">'+e.cat+'</span></td><td class="nw">'+b.addedOn+'</td><td class="nw"><span class="cur cur-'+b.cur.toLowerCase()+'">'+b.cur+'</span><span class="amt">'+fmt(b.amt)+'</span></td><td class="nw">'+(b.mgr||'—')+'</td><td class="nw">'+b.by+'</td><td>'+e.title+'</td><td>'+e.dept+'</td><td class="reason">'+b.reason+'</td><td><button class="btn-link" data-seen="'+b.id+'">'+eye+'Seen</button></td></tr>'; }).join('');
   document.getElementById('deskNhBody').innerHTML = hires.map(h=>
     '<tr><td>'+chk('desk',h.id)+'</td><td><div class="who"><span class="avatar">'+h.ini+'</span><span class="n">'+h.name+'</span></div></td><td><span class="tag '+catCls(h.cat)+'">'+h.cat+'</span></td><td>'+h.emp+'</td><td class="nw">'+h.start+'</td><td class="nw"><span class="cur cur-'+h.cur.toLowerCase()+'">'+h.cur+'</span><span class="amt">'+fmt(h.sal)+'</span></td><td class="nw">'+h.mgr+'</td><td>'+h.title+'</td><td>'+h.dept+'</td><td class="reason">'+h.notes+'</td><td><button class="btn-link" data-seen="'+h.id+'">'+eye+'Seen</button></td></tr>').join('');
   document.getElementById('deskImmGroup').style.display = items.length?'':'none';
@@ -643,8 +643,8 @@ function renderDesk(){
 function renderMob(){
   const items = awarenessItems(), hires = nhItems();
   document.getElementById('mobImmCards').innerHTML = items.map(b=>{ const e=emp(b.empId);
-    return '<div class="card"><div class="card-h">'+chk('mob',b.id)+'<span class="avatar">'+e.ini+'</span><div><div class="nm">'+e.name+'</div><div class="jt">'+e.title+'</div></div><div class="amt-blk"><div><span class="cur cur-'+b.cur.toLowerCase()+'">'+b.cur+'</span><span class="amt">'+fmt(b.amt)+'</span></div><div class="lbl">BONUS · PAID</div></div></div>'+
-      '<div class="card-tags"><span class="tag tag-amber">Immediate bonus</span><span class="tag tag-neutral">'+e.cat+'</span><span class="tag tag-green">Paid '+b.paidOn+'</span></div>'+
+    return '<div class="card"><div class="card-h">'+chk('mob',b.id)+'<span class="avatar">'+e.ini+'</span><div><div class="nm">'+e.name+'</div><div class="jt">'+e.title+'</div></div><div class="amt-blk"><div><span class="cur cur-'+b.cur.toLowerCase()+'">'+b.cur+'</span><span class="amt">'+fmt(b.amt)+'</span></div><div class="lbl">IMMEDIATE BONUS</div></div></div>'+
+      '<div class="card-tags"><span class="tag tag-amber">Immediate bonus</span><span class="tag tag-neutral">'+e.cat+'</span><span class="tag tag-neutral">Added '+b.addedOn+'</span></div>'+
       '<div class="meta"><div class="full"><div class="k">DEPARTMENT</div><div class="v">'+e.dept+'</div></div><div><div class="k">REQUESTING MANAGER</div><div class="v">'+(b.mgr||'—')+'</div></div><div><div class="k">ADDED BY</div><div class="v">'+b.by+'</div></div></div>'+
       '<div class="rsn">'+b.reason+'</div><button class="btn seen-btn" data-seen="'+b.id+'">'+eye+'Seen</button></div>'; }).join('');
   document.getElementById('mobNhCards').innerHTML = hires.map(h=>
@@ -730,17 +730,6 @@ mgrIn.addEventListener('keydown', e=>{
 });
 mgrList.addEventListener('mousedown', e=>{ const li=e.target.closest('li[data-name]'); if(li){ mgrIn.value=li.dataset.name; mgrList.classList.remove('show'); } });
 document.getElementById('openAdd').addEventListener('click', ()=>{ editing=null; resetForm(); go('add'); document.getElementById('iType').focus(); });
-function openEdit(id){
-  const b=bonuses.find(x=>x.id===id); if(!b || b.status!=='Pending Transfer') return;
-  editing=b; resetForm();
-  document.getElementById('iType').value='Immediate Bonus'; document.getElementById('iType').disabled=true;
-  document.getElementById('iAmt').value=b.amt; document.getElementById('iRsn').value=b.reason; document.getElementById('iMgr').value=b.mgr||'';
-  onType(); go('add');
-}
-let delTarget=null;
-function openDel(id){ const b=bonuses.find(x=>x.id===id); if(!b||b.status!=='Pending Transfer') return; delTarget=b; document.getElementById('delText').textContent=b.cur+' '+fmt(b.amt)+' for '+emp(b.empId).name+' — to-do '+b.todo+'.'; document.getElementById('delScrim').classList.add('show'); }
-document.getElementById('delNo').addEventListener('click',()=>document.getElementById('delScrim').classList.remove('show'));
-document.getElementById('delYes').addEventListener('click',()=>{ if(delTarget){ delTarget.status='Cancelled'; toast('Immediate Bonus deleted — to-do '+delTarget.todo+' closed.'); } delTarget=null; document.getElementById('delScrim').classList.remove('show'); renderAll(); });
 document.getElementById('whoami').addEventListener('change', e=>{ currentUser=e.target.value; document.querySelectorAll('.who-name').forEach(x=>x.textContent=currentUser.split(' ')[0]); document.querySelectorAll('.who-ini').forEach(x=>x.textContent=userIni(currentUser)); });
 document.getElementById('saveLimits').addEventListener('click',()=>{ document.querySelectorAll('[data-lim]').forEach(i=>{ const [c,k]=i.dataset.lim.split('-'); LIMITS[c][+k]=Number(i.value); }); toast('Immediate Bonus limits saved.'); });
 function validate(){
@@ -761,11 +750,10 @@ document.getElementById('noteSave').addEventListener('click', ()=>{
   if(!validate()) return;
   const amt=Number(document.getElementById('iAmt').value), rsn=document.getElementById('iRsn').value.trim(), mgr=document.getElementById('iMgr').value, t=document.getElementById('iType').value, nr=document.getElementById('iNr').value;
   if(isImm()){
-    if(editing){ editing.amt=amt; editing.reason=rsn; editing.mgr=mgr; renderAll(); go('osp'); toast('Immediate Bonus updated — to-do '+editing.todo+' amount is now '+EMP.cur+' '+fmt(amt)+'.'); editing=null; return; }
     seq++;
     bonuses.push({id:'b'+Date.now(), empId:'e0', cur:EMP.cur, amt, reason:rsn, mgr, by:currentUser, addedOn:today(), status:'Pending Transfer', paidOn:'', seen:false, todo:'BT-'+seq});
     renderAll(); go('osp');
-    toast('Immediate Bonus of '+EMP.cur+' '+fmt(amt)+' added for '+EMP.name+' — to-do BT-'+seq+' created.'+(currentUser!==CINDA?' Alert email sent to Cinda (added by '+currentUser+').':''));
+    toast('Immediate Bonus of '+EMP.cur+' '+fmt(amt)+' added for '+EMP.name+' — to-do BT-'+seq+' created. Email sent to Malaz Alool · listed for Mario under For Your Awareness.'+(currentUser!==CINDA?' Alert email sent to Cinda (added by '+currentUser+').':''));
   } else {
     notes.unshift({type:t, nr, amt, rsn, mgr, by:currentUser, date:today()});
     renderAll(); go('osp');
@@ -780,11 +768,7 @@ document.addEventListener('click', e=>{
   if(e.target.closest('#backToList,#backToList2')){ e.preventDefault(); closeSingle(); return; }
   if(e.target.closest('#todoDone')){
     if(!openTodo) return; openTodo.status='Paid'; openTodo.paidOn=today(); const b=openTodo; closeSingle(); renderAll();
-    toast('Transfer done. Email sent to Malaz Alool ('+b.cur+' '+fmt(b.amt)+' paid to '+emp(b.empId).name+' by '+b.by+') · listed for Mario under For Your Awareness.'); return; }
-  const ed = e.target.closest('[data-edit]'); if(ed){ openEdit(ed.dataset.edit); return; }
-  const dl = e.target.closest('[data-del]'); if(dl){ openDel(dl.dataset.del); return; }
-  const c = e.target.closest('[data-cancel]'); if(c){
-    const b = bonuses.find(x=>x.id===c.dataset.cancel); b.status='Cancelled'; renderAll(); toast('Immediate bonus cancelled — to-do '+b.todo+' closed.'); return; }
+    toast('Transfer done — '+b.cur+' '+fmt(b.amt)+' paid to '+emp(b.empId).name+'. Manager note marked Paid.'); return; }
   const s = e.target.closest('[data-seen]'); if(s){ markSeen([s.dataset.seen]); return; }
   const k = e.target.closest('[data-chk]'); if(k){ const S=sel[k.dataset.scope]; S.has(k.dataset.chk)?S.delete(k.dataset.chk):S.add(k.dataset.chk); k.dataset.scope==='desk'?renderDesk():renderMob(); return; }
   const sa = e.target.closest('[data-selall]'); if(sa){ const sc=sa.dataset.selall, S=sel[sc]; const all=[...awarenessItems().map(b=>b.id),...nhItems().map(h=>h.id)]; if(S.size===all.length) S.clear(); else all.forEach(id=>S.add(id)); sc==='desk'?renderDesk():renderMob(); return; }
