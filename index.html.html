@@ -296,7 +296,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
     <button data-view="params">5 · Configurations › Parameters</button>
   </div>
   <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Employee destination <select id="destSel" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="bank">Bank transfer (AED)</option><option value="intl">International / Ansari (USD)</option><option value="wps">WPS (AED)</option><option value="none">None set</option></select></span>
-  <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Logged in as <select id="whoami" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="Cinda Sekareah">Cinda Sekareah</option><option value="Mohammad Khalil">Mohammad Khalil</option></select></span>
+  <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Logged in as <select id="whoami" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="Cinda Sekareah">Cinda Sekareah</option><option value="Mohammad Khalil">Mohammad Khalil (trustee)</option><option value="Yassin Ahmed">Yassin Ahmed (not a trustee)</option></select></span>
   <span class="hint">Add Note (1): Malaz emailed + Mario (3 &amp; 4) at once; accountant pays in 2. Limits in 5.</span>
 </div>
 
@@ -350,13 +350,14 @@ td.nw,.who .n,.who .t{white-space:nowrap}
     <div class="stg-modal-body">
       <div class="f" id="fType"><label>Note Type <span class="req">*</span></label><select id="iType"><option value=""></option><option>Salary Raise</option><option>Deduction</option><option>Salary Reduction</option><option>Bonus</option><option>Immediate Bonus</option></select><div class="err">Note Type is required.</div></div>
       <div class="f" id="fAmt"><label>Amount <span class="req">*</span></label><div class="in"><input id="iAmt" type="number" min="0" step="1"><span class="suf" id="amtCur"></span></div><div class="help" id="amtHelp" style="display:none"></div><div class="err" id="amtErr"></div></div>
-      <div class="f" id="fDate"><label>Note Date <span class="req">*</span></label><input id="iDate" type="date"><div class="err">Note Date is required.</div></div>
+      <div class="f" id="fDate"><label>Note Date <span class="req">*</span></label><input id="iDate" type="date"><div class="help" id="dateHelp" style="display:none">Locked to today for an Immediate Bonus.</div><div class="err">Note Date is required.</div></div>
       <div class="f" id="fRsn"><label><span id="rsnLbl">Note Reason</span> <span class="req">*</span></label><textarea id="iRsn"></textarea><div class="help" id="rsnHelp" style="display:none">Sent to Malaz Alool and shown to Mario.</div><div class="err">Note Reason is required.</div></div>
       <div id="immOnly" style="display:none">
         <div class="f"><label>Manager <span class="opt">(optional — who requested it)</span></label><div class="in ac"><input id="iMgr" type="text" autocomplete="off" placeholder="Type at least 3 letters of the name"><ul class="ac-list" id="mgrList"></ul></div></div>
         <div class="f"><label>Payment</label>
           <div id="destBox" class="dest" style="margin:0 0 10px"></div>
           <div id="destErr" class="err" style="display:none;font-size:13px">No transfer destination selected. Set one in the Profile tab first.</div>
+          <div id="trustErr" class="err" style="display:none;font-size:13px">Only payroll trustees can add an Immediate Bonus.</div>
         </div>
         <div class="info-strip" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>No approval. Saving creates one accountant to-do for the current transfer destination, exactly like paying a loan now. Not deducted from any salary; added to the previous month's Manager Addition. Once saved it cannot be edited or deleted. Malaz Alool is emailed and the bonus is listed for Mario under For Your Awareness immediately on Save.</div></div>
       </div>
@@ -558,6 +559,7 @@ const DEST = {
 };
 let currentUser = 'Cinda Sekareah';
 const CINDA = 'Cinda Sekareah';
+const TRUSTEES = ['Cinda Sekareah','Mohammad Khalil'];
 function userIni(n){ return n.split(' ').map(x=>x[0]).join('.'); }
 const emp = id => EMPLOYEES.find(e=>e.id===id);
 let bonuses = [
@@ -716,6 +718,8 @@ function onType(){
   document.getElementById('amtHelp').style.display = imm?'':'none';
   document.getElementById('amtHelp').textContent = 'Minimum '+EMP.cur+' '+fmt(mn)+', maximum '+EMP.cur+' '+fmt(mx)+' per immediate bonus (Configurations › Parameters).';
   document.getElementById('rsnHelp').style.display = imm?'':'none';
+  document.getElementById('iDate').disabled = imm; document.getElementById('iDate').value=isoNow(); document.getElementById('iDate').style.background=imm?'#f8f9fa':''; document.getElementById('dateHelp').style.display = imm?'':'none';
+  document.getElementById('trustErr').style.display='none';
   const box=document.getElementById('destBox'), de=document.getElementById('destErr');
   if(empDest==='none'){ box.style.display='none'; de.style.display='block'; }
   else { const D=DEST[empDest]; box.style.display=''; de.style.display='none'; box.innerHTML='<div><div class="k">Payment Method</div><div class="v">'+D.method+'</div></div><div><div class="k">Receiver</div><div class="v">'+D.receiver+'</div></div><div><div class="k">Details</div><div class="v">'+D.details+'</div></div>'; }
@@ -760,6 +764,7 @@ function validate(){
   document.getElementById('fType').classList.toggle('invalid', !t); if(!t) ok=false;
   const dBad = !document.getElementById('iDate').value; document.getElementById('fDate').classList.toggle('invalid', dBad); if(dBad) ok=false;
   if(isImm() && empDest==='none'){ ok=false; document.getElementById('destErr').style.display='block'; }
+  if(isImm() && !TRUSTEES.includes(currentUser)){ ok=false; document.getElementById('trustErr').style.display='block'; }
   let amtBad, msg; const [mn,mx]=LIMITS[EMP.cur]||[100,2000];
   if(isImm()){ amtBad = !(raw!=='' && Number.isFinite(a) && a>=mn && a<=mx); msg = raw==='' ? 'Amount is required.' : (a<mn ? 'Below the minimum of '+EMP.cur+' '+fmt(mn)+'.' : 'Above the maximum of '+EMP.cur+' '+fmt(mx)+'.'); }
   else { amtBad = !(raw!=='' && a>0); msg='Amount is required.'; }
