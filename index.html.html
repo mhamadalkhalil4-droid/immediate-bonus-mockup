@@ -296,7 +296,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
     <button data-view="params">5 · Configurations › Parameters</button>
   </div>
   <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Employee destination <select id="destSel" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="bank">Bank transfer (AED)</option><option value="intl">International / Ansari (USD)</option><option value="wps">WPS (AED)</option><option value="none">None set</option></select></span>
-  <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Logged in as <select id="whoami" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="Cinda Sekareah">Cinda Sekareah</option><option value="Mohammad Khalil">Mohammad Khalil (trustee)</option><option value="Yassin Ahmed">Yassin Ahmed (not a trustee)</option></select></span>
+  <span style="font-size:12px;color:#aab0bd;display:flex;align-items:center;gap:6px">Logged in as <select id="whoami" style="background:#2a2f3a;color:#fff;border:1px solid #3a3f4a;border-radius:6px;padding:3px 6px;font-size:12px"><option value="Cinda Sekareah">Cinda Sekareah (Payroll Trustee)</option><option value="Yassin Ahmed">Yassin Ahmed (not a Payroll Trustee)</option></select></span>
   <span class="hint">Add Note (1): Malaz emailed + Mario (3 &amp; 4) at once; accountant pays in 2. Limits in 5.</span>
 </div>
 
@@ -357,7 +357,7 @@ td.nw,.who .n,.who .t{white-space:nowrap}
         <div class="f"><label>Payment</label>
           <div id="destBox" class="dest" style="margin:0 0 10px"></div>
           <div id="destErr" class="err" style="display:none;font-size:13px">No transfer destination selected. Set one in the Profile tab first.</div>
-          <div id="trustErr" class="err" style="display:none;font-size:13px">Only payroll trustees can add an Immediate Bonus.</div>
+          <div id="trustErr" class="err" style="display:none;font-size:13px">Only a Payroll Trustee can add an Immediate Bonus.</div>
         </div>
         <div class="info-strip" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><div>No approval. Saving creates one accountant to-do for the current transfer destination, exactly like paying a loan now. Not deducted from any salary; added to the previous month's Manager Addition. Once saved it cannot be edited or deleted. Malaz Alool is emailed and the bonus is listed for Mario under For Your Awareness immediately on Save.</div></div>
       </div>
@@ -559,7 +559,7 @@ const DEST = {
 };
 let currentUser = 'Cinda Sekareah';
 const CINDA = 'Cinda Sekareah';
-const TRUSTEES = ['Cinda Sekareah','Mohammad Khalil'];
+const TRUSTEES = ['Cinda Sekareah'];
 function userIni(n){ return n.split(' ').map(x=>x[0]).join('.'); }
 const emp = id => EMPLOYEES.find(e=>e.id===id);
 let bonuses = [
@@ -781,7 +781,7 @@ document.getElementById('noteSave').addEventListener('click', ()=>{
     seq++;
     bonuses.push({id:'b'+Date.now(), empId:'e0', cur:EMP.cur, dest:empDest, amt, reason:rsn, mgr, by:currentUser, addedOn:nd, status:'Pending Transfer', paidOn:'', seen:false, todo:'BT-'+seq});
     closeAdd(); renderAll();
-    toast('Immediate Bonus of '+EMP.cur+' '+fmt(amt)+' added for '+EMP.name+' — accountant to-do created ('+DEST[empDest].method+'). Email sent to Malaz Alool · listed for Mario under For Your Awareness.'+(currentUser!==CINDA?' Alert email sent to Cinda (added by '+currentUser+').':''));
+    toast('Immediate Bonus of '+EMP.cur+' '+fmt(amt)+' added for '+EMP.name+' — accountant to-do created ('+DEST[empDest].method+'). Email sent to Malaz Alool · listed for Mario under For Your Awareness.'); 
   } else {
     notes.unshift({type:t, amt, rsn, mgr, by:currentUser, date:nd});
     closeAdd(); renderAll();
